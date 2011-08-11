@@ -72,8 +72,6 @@ BOARD_SYSTEM_FILESYSTEM := ext3
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p15
 BOARD_CACHE_FILESYSTEM := ext3
 BOARD_CACHE_FILESYSTEM_OPTIONS := nosuid,nodev,relatime,data=ordered
-BOARD_HIJACK_RECOVERY_PATH := /preinstall/
-BOARD_HAS_PREINSTALL := true
 TARGET_NO_BOOT := false
 TARGET_NO_RECOVERY := false
 
@@ -84,15 +82,7 @@ BOARD_VOLD_MAX_PARTITIONS := 18
 
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_UMS_LUNFILE := /sys/devices/platform/usb_mass_storage/lun0/file
-BOARD_HIJACK_BOOT_PATH := /preinstall/
-BOARD_HIJACK_EXECUTABLES := logwrapper
-BOARD_HIJACK_LOG_ENABLE := false
 BOARD_USES_MMCUTILS := true
-BOARD_HIJACK_UPDATE_BINARY := /preinstall/update-binary
-BOARD_HIJACK_BOOT_UPDATE_ZIP := /preinstall/update-boot.zip
-BOARD_HIJACK_RECOVERY_UPDATE_ZIP := /preinstall/update-recovery.zip
-BOARD_PREINSTALL_DEVICE := /dev/block/mmcblk0p17
-BOARD_PREINSTALL_FILESYSTEM := ext3
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
@@ -111,9 +101,6 @@ WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/dhd.ko"
 #WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wl/sdio-g-cdc-roml-reclaim-wme-apsta-idauth-minioctl.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/wl/sdio-ag-cdc-full11n-minioctl-roml-pno-wme-aoe-pktfilter-keepalive.bin nvram_path=/system/etc/wl/nvram.txt"
 WIFI_DRIVER_MODULE_NAME     := "dhd"
-
-#Fix _sync functions for RIL
-TARGET_MOTO_SYNC_FUNCTIONS := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
