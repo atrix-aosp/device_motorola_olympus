@@ -64,7 +64,9 @@ $(call inherit-product-if-exists, vendor/motorola/olympus/olympus-vendor.mk)
 
 $(call inherit-product, build/target/product/full.mk)
 
-PRODUCT_PACKAGES += Usb
+PRODUCT_PACKAGES += Usb \
+    Superuser \
+    su
 
 DEVICE_PACKAGE_OVERLAYS += device/motorola/olympus/overlay
 
@@ -101,5 +103,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_NAME := generic_olympus
+PRODUCT_BRAND := motorola
 PRODUCT_DEVICE := olympus
 PRODUCT_MODEL := MB860
+PRODUCT_MANUFACTURER := Motorola
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=olyatt BUILD_ID=4.5.91 BUILD_DISPLAY_ID=4.5.91 BUILD_FINGERPRINT=MOTO/olyatt/olympus:2.3.4/4.5.91/110625:user/release-keys PRIVATE_BUILD_DESC="olympus-user 2.3.4 4.5.91 110625 release-keys"
+PRODUCT_SPECIFIC_DEFINES = WEBCORE_ACCELERATED_SCROLLING=true
