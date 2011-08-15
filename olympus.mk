@@ -100,6 +100,11 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
+# Bring in apns from CM
+PRODUCT_COPY_FILES += \
+    device/motorola/olympus/apns-conf.xml:system/etc/apns-conf.xml
+
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_NAME := generic_olympus
