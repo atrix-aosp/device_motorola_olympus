@@ -17,7 +17,6 @@ persist.ril.mux.sleep=2
 ro.kernel.android.ril=yes
 persist.ril.pppd.start.fail.max=16
 mobiledata.interfaces=ppp0
-ro.telephony.ril_class=tmp_atrix_ugly_hack
 
 # Default network type.
 # 3 -> GSM/WCDMA (auto mode, according to PRL)
@@ -28,12 +27,17 @@ ro.additionalmounts=/mnt/emmc
 
 #special moto usb handling
 ro.usb.use_custom_service=1
-
 # disable Windows Media Sync Usb.apk mode
 ro.mtp_available=0
+# disable modem mode
+ro.modem_available=0
+# disable ngp
+ro.ngp_available=0
+# disable usb net
+ro.rndis_available=0
 
 # Default to charge only
-ro.default_usb_mode=4
+ro.default_usb_mode=5
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
