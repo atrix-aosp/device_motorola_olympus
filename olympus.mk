@@ -15,7 +15,7 @@
 #
 
 #
-# This is the product configuration for a generic GSM passion,
+# This is the product configuration for a generic GSM olympus,
 # not specialized for any geography.
 #
 
@@ -34,12 +34,16 @@ PRODUCT_COPY_FILES += \
     device/motorola/olympus/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
     device/motorola/olympus/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
 
-## (3)  Finally, the least specific parts, i.e. the non-CDMA-specific aspects
+# sysctl conf
+PRODUCT_COPY_FILES += \
+    device/motorola/olympus/sysctl.conf:system/etc/sysctl.conf
+
+## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# droid2 uses high-density artwork where available
+# olympus uses high-density artwork where available
 PRODUCT_LOCALES += hdpi
 
 # copy all kernel modules under the "modules" directory to system/lib/modules
