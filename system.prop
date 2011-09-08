@@ -19,8 +19,8 @@ persist.ril.pppd.start.fail.max=16
 mobiledata.interfaces=ppp0
 
 # Default network type.
-# 3 -> GSM/WCDMA (auto mode, according to PRL)
-ro.telephony.default_network=3
+# 0 -> WCDMA preferred
+ro.telephony.default_network=0
 
 # Mount the internal SD card, too
 ro.additionalmounts=/mnt/emmc
@@ -52,3 +52,10 @@ ro.battery_light=true
 
 # Allow people to exchange sdcard and emmc mountpoints from CMParts
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+
+# Enable HDMI mirroring
+ro.hdmi.mirror.enable=true
+
+# Enable GPS debug
+gps.debug.sv_status_csv=1
+gps.debug.nmea=1
