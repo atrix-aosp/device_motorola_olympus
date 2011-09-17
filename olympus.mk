@@ -65,6 +65,12 @@ PRODUCT_PACKAGES += Usb \
     Superuser \
     su
 
+# Engineering utilities
+PRODUCT_PACKAGES += \
+    Development \
+    SpareParts \
+    Term
+
 DEVICE_PACKAGE_OVERLAYS += device/motorola/olympus/overlay
 
 # Board-specific init
