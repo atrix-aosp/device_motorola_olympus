@@ -24,19 +24,18 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 PRODUCT_COPY_FILES += \
-    device/motorola/olympus/init_prep_keypad.sh:root/init_prep_keypad.sh \
     device/motorola/olympus/init.olympus.rc:root/init.olympus.rc \
     device/motorola/olympus/ueventd.olympus.rc:root/ueventd.olympus.rc
 
-# motorola pds permission fix script
+# motorola helper scripts
 PRODUCT_COPY_FILES += \
-    device/motorola/olympus/pds_perm_fix.sh:system/bin/pds_perm_fix.sh \
-    device/motorola/olympus/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
-    device/motorola/olympus/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
+    device/motorola/olympus/scripts/pds_perm_fix.sh:system/bin/pds_perm_fix.sh \
+    device/motorola/olympus/scripts/bt_init_wrapper.sh:system/bin/bt_init_wrapper.sh \
+    device/motorola/olympus/scripts/hciattach_wrapper.sh:system/bin/hciattach_wrapper.sh
 
 # sysctl conf
 PRODUCT_COPY_FILES += \
-    device/motorola/olympus/sysctl.conf:system/etc/sysctl.conf
+    device/motorola/olympus/config/sysctl.conf:system/etc/sysctl.conf
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
@@ -75,11 +74,11 @@ DEVICE_PACKAGE_OVERLAYS += device/motorola/olympus/overlay
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    device/motorola/olympus/vold.fstab:system/etc/vold.fstab \
+    device/motorola/olympus/config/vold.fstab:system/etc/vold.fstab \
     device/motorola/olympus/init.vsnet:system/bin/init.vsnet \
-    device/motorola/olympus/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-    device/motorola/olympus/media_profiles.xml:system/etc/media_profiles.xml \
-    device/motorola/olympus/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/motorola/olympus/scripts/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+    device/motorola/olympus/config/media_profiles.xml:system/etc/media_profiles.xml \
+    device/motorola/olympus/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 #keyboard files
 PRODUCT_COPY_FILES += \
