@@ -5,6 +5,7 @@ ro.sf.lcd_density=240
 dalvik.vm.heapsize=42m
 
 #RIL
+ro.telephony.ril_class=mototegra
 rild.libpath=/system/lib/libmoto_ril.so
 persist.ril.mux.noofchannels=9
 persist.ril.mux.ttydevice=/dev/ttyHS3
@@ -65,7 +66,3 @@ ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
 # Enable HDMI mirroring
 ro.hdmi.mirror.enable=true
-
-# Enable GPS debug
-gps.debug.sv_status_csv=1
-gps.debug.nmea=1
