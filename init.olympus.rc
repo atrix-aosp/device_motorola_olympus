@@ -290,6 +290,13 @@ on boot
 # Start services
     exec /system/bin/mot_boot_mode
 
+# triggered by holding down volume down, volume up and power
+service reboot_key /system/bin/reboot
+    user root
+    oneshot
+    keycodes 114 115 107
+    disabled
+
 service tcmd /system/bin/tcmd
     class post-zygote_services
     group system radio input system log camera graphics sdcard_rw audio inet bluetooth wifi compass cache system mount net_bt_admin net_raw net_admin
