@@ -292,14 +292,16 @@ on boot
 
 # triggered by holding down volume down, volume up and power
 service reboot_key /system/bin/reboot
-    user root
+    user system
     oneshot
     keycodes 114 115 107
     disabled
 
 service tcmd /system/bin/tcmd
     class post-zygote_services
-    group system radio input system log camera graphics sdcard_rw audio inet bluetooth wifi compass cache system mount net_bt_admin net_raw net_admin
+    # group option accepts at most 12 suppl. groups
+    group system radio input system camera graphics sdcard_rw audio inet bluetooth wifi net_admin
+    #group log compass cache mount net_bt_admin net_raw
     socket local_tcmd stream 0660 system system
     socket batch_socket stream 0600 system system
 
@@ -491,13 +493,10 @@ on early-boot
         setprop ro.EMPTY_APP_MEM 21000
 
 on boot
-	chown system /dev/aes1750
-	chgrp system /dev/aes1750
+	chown system system /dev/aes1750
 	chmod 0600 /dev/aes1750
-	chown system /data/am2data.db
-	chown system /data/am2data.db.meta
-	chgrp system /data/am2data.db
-	chgrp system /data/am2data.db.meta
+	chown system system /data/am2data.db
+	chown system system /data/am2data.db.meta
 
 # Enable ADB
 #   write /dev/usb_device_mode charge_adb
@@ -530,17 +529,10 @@ on boot
       setprop net.tcp.buffersize.gprs    4096,8192,12288,4096,8192,12288
 
 
-# ppp daemon used by DUN.
-service pppd /system/xbin/pppd silent ipparam dun plugin /system/lib/libpppd_plugin.so
-    class post-zygote_services
-    user root
-    disabled
-    oneshot
-
 # Fingerprint sensor daemon
 service am2server /system/bin/am2server
-	user system
-	group system inet input
+    user system
+    group system inet input
     class pre-zygote_services
 
 on device-added-/dev/ttyUSB0
