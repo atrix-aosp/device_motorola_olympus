@@ -80,7 +80,6 @@ adb pull /system/lib/libomx_mp3dec_sharedlibrary.so ../../../vendor/$VENDOR/$DEV
 adb pull /system/lib/libomx_sharedlibrary.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib
 
 # Pull needed NV libs
-adb pull /system/lib/liba2dp.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib
 adb pull /system/lib/librds_util.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib
 adb pull /system/lib/libril.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib
 adb pull /system/lib/libril_rds.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib
@@ -159,7 +158,6 @@ adb pull /system/bin/nvmm_service.axf ../../../vendor/$VENDOR/$DEVICE/proprietar
 adb pull /system/bin/nvmm_adtsdec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_wavdec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_reference.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/nv_hciattach ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_sorensondec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_mp3dec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvddk_audiofx_core.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
@@ -170,21 +168,14 @@ adb pull /system/bin/nvmm_jpegenc.axf ../../../vendor/$VENDOR/$DEVICE/proprietar
 adb pull /system/bin/nvddk_audiofx_transport.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_mp2dec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/ap_gain.bin ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/omx_tests ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/memtest_mode ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_mpeg4dec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_wmadec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_audiomixer.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_manager.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvmm_jpegdec.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/nvrm_avp.axf ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/tegrastats ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/omx_tests ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/tund ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/sdptool ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/Hostapd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/battd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
-adb pull /system/bin/remountpds ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/touchpad ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/mdm_panicd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
 adb pull /system/bin/rild ../../../vendor/$VENDOR/$DEVICE/proprietary/bin
@@ -253,13 +244,18 @@ adb pull /system/lib/libstagefrighthw.so ../../../vendor/$VENDOR/$DEVICE/proprie
 BASEURL="http://atrix-dev-team.github.com/android_vendor_motorola_olympus/"
 wget "${BASEURL}touchpad.cfg" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/touchpad/22/touchpad.cfg
 wget "${BASEURL}FastDormancy.apk" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/app/FastDormancy.apk
+wget "${BASEURL}AudioEffectSettings.apk" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/app/AudioEffectSettings.apk
 wget "${BASEURL}battd" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/battd
 wget "${BASEURL}libbattd.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libbattd.so
+wget "${BASEURL}libnmea.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libnmea.so
+wget "${BASEURL}gps.olympus.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/hw/gps.olympus.so
+wget "${BASEURL}libmoto_ril.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libmoto_ril.so
 wget "${BASEURL}com.motorola.android.iextdispservice.jar" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/framework/com.motorola.android.iextdispservice.jar
 wget "${BASEURL}com.motorola.android.imirrorservice.jar" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/framework/com.motorola.android.imirrorservice.jar
 wget "${BASEURL}libmirrorjni.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libmirrorjni.so
 wget "${BASEURL}MirrorService.apk" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/app/MirrorService.apk
-wget "${BASEURL}libnvdispmgr_d.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libnvdispmgr_d.so
+wget "${BASEURL}ExtDispService.apk" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/app/ExtDispService.apk
 wget "${BASEURL}libhdmi.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libhdmi.so
+wget "${BASEURL}overlay.tegra.so" -O ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/hw/overlay.tegra.so
 
 ./setup-makefiles.sh

@@ -2,7 +2,7 @@
 # system.prop for olympus
 #
 ro.sf.lcd_density=240
-dalvik.vm.heapsize=42m
+dalvik.vm.heapsize=64m
 
 #RIL
 ro.telephony.ril_class=mototegra
@@ -19,6 +19,7 @@ persist.ril.mux.sleep=2
 ro.kernel.android.ril=yes
 persist.ril.pppd.start.fail.max=16
 mobiledata.interfaces=ppp0
+ro.ril.ntmodeglobal=true
 
 #Define TCP buffer sizes for various networks
 #ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -42,7 +43,7 @@ ro.usb.use_custom_service=1
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
-wifi.supplicant_scan_interval = 60
+wifi.supplicant_scan_interval=30
 
 # To set wifi (AP) driver's firmware path
 ro.wifi-ap.fw-path=/system/etc/wl/sdio-g-cdc-roml-reclaim-wme-apsta-idauth-minioctl.bin
@@ -63,6 +64,21 @@ ro.battery_light=true
 
 # Allow people to exchange sdcard and emmc mountpoints from CMParts
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+
+# Tegra debugging
+persist.tegra.nvlog.level=4
+#persist.tegra.nvlog.14.level=5
+
+# DRM
+persist.tegra.drmlib.asfdrm=libnvdrm.so
+Drmdll.asfdrm=libnvdrm.so
+
+# Set locale to English US by default
+ro.product.locale.language=en
+ro.product.locale.region=US
+
+# Enable detailed GC data and SMP dexopt
+dalvik.vm.dexopt-flags=m=y,u=n
 
 # Enable HDMI mirroring
 ro.hdmi.mirror.enable=true
